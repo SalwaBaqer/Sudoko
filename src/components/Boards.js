@@ -1,4 +1,5 @@
-var easy = [
+import { Grid } from "../styles.js";
+let easy = [
   "016002400320009000040103000005000069009050300630000800000306010000400072004900680",
   "017030590000000403000006070120009050000402000060700021030600000901000000054020310",
   "018093005002710000046000000000000079100904002250000000000000920000032500600850140",
@@ -262,7 +263,7 @@ var easy = [
   "200800014700010000001095800000000790006907500072000000003620100000040006610009003",
 ];
 
-var medium = [
+let medium = [
   "000023087600000500010700000009000004050872030800000700000005090002000006530960000",
   "000024600020039008060000024107000000008903500000000403950000040300590060006470000",
   "000025043200400076000000800000000065008659700540000000001000000650004007970830000",
@@ -566,7 +567,7 @@ var medium = [
   "000300417700000000000502006020040079090000080510090030200401000000000001981003000",
 ];
 
-var hard = [
+let hard = [
   "000070100000000300207830509700905230003000800089307005608053902004000000002090000",
   "000070300000500708800300090720800004900030007600002081010006002504003000006010000",
   "000070860000009001006580009695000000008000900000000513400015600700300000083060000",
@@ -878,8 +879,58 @@ function getRamdomBoardFor(array) {
   var idx = randomIntFromInterval(0, array.length - 1);
   return array[idx];
 }
+let SquareMaker = (x, board) => {
+  let y = board;
+  let increment = 0;
+  let line = [];
+  let sqr = [];
+
+  for (let counter = 0; counter < 3; counter++) {
+    for (let i = 0; i < 3; i++) {
+      line.push(y.charAt(x + increment));
+      x = x + 1;
+    }
+    sqr.push(line);
+    line = [];
+    increment = increment + 6;
+  }
+  return sqr;
+};
 let Boards = () => {
-  return getRamdomBoardFor(medium);
+  let board = getRamdomBoardFor(medium);
+  let y = board;
+  let squares = [];
+  // let line = [];
+  // let puzzle = [];
+  // for (let counter = 0; counter < 90; counter++) {
+  //   if (counter > 0 && counter % 9 === 0) {
+  //     puzzle.push(line);
+  //     line = [];
+  //   }
+  //   line.push(board.charAt(counter));
+  let squareOne = SquareMaker(0, y);
+  let squareTwo = SquareMaker(3, y);
+  let squareThree = SquareMaker(6, y);
+  let squareFour = SquareMaker(27, y);
+  let squareFive = SquareMaker(30, y);
+  let squareSix = SquareMaker(33, y);
+  let squareSeven = SquareMaker(54, y);
+  let squareEight = SquareMaker(57, y);
+  let squareNine = SquareMaker(60, y);
+
+  squares = [
+    squareOne,
+    squareTwo,
+    squareThree,
+    squareFour,
+    squareFive,
+    squareSix,
+    squareSeven,
+    squareEight,
+    squareNine,
+  ];
+
+  return squares.map((box) => <Grid>{box}</Grid>);
 };
 
-module.exports = Boards;
+export default Boards;
