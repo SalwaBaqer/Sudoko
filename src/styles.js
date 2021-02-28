@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SquareGrid from "react-native-square-grid";
 
 export const AppWrapper = styled.div`
   display: flexbox;
