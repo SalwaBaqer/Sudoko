@@ -1,4 +1,5 @@
-import { Grid } from "../styles.js";
+import { Square, Row } from "../styles.js";
+
 let easy = [
   "016002400320009000040103000005000069009050300630000800000306010000400072004900680",
   "017030590000000403000006070120009050000402000060700021030600000901000000054020310",
@@ -929,8 +930,25 @@ let Boards = () => {
     squareEight,
     squareNine,
   ];
+  const printSone = squareOne.map((box) => <Square>{box}</Square>);
+  const printStwo = squareTwo.map((box) => <Square>{box}</Square>);
+  const printSthree = squareThree.map((box) => <Square>{box}</Square>);
+  const printSfour = squareFour.map((box) => <Square>{box}</Square>);
+  const printSfive = squareFive.map((box) => <Square>{box}</Square>);
+  const printSsix = squareSix.map((box) => <Square>{box}</Square>);
+  const printSseven = squareSeven.map((box) => <Square>{box}</Square>);
+  const printSeight = squareEight.map((box) => <Square>{box}</Square>);
+  const printSnine = squareNine.map((box) => <Square>{box}</Square>);
 
-  return squares.map((box) => <Grid>{box}</Grid>);
+  const printS = squares.map((box) => <Square>{box}</Square>);
+
+  return (
+    <Row>
+      <div>
+        {printSone} {printStwo}
+      </div>
+    </Row>
+  );
 };
 
 export default Boards;
