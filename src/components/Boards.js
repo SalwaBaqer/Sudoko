@@ -98,7 +98,11 @@ let Boards = () => {
   const printSone = squareOne.map((box) =>
     //===== i added ternary u know why
     box === " " ? (
-      <Colinput color={"#98B9F2"} />
+      <Colinput
+        color={"#98B9F2"}
+        //onchange will help u to check u know what , i put alert just to show u the value
+        onChange={(event) => alert(event.target.value)}
+      />
     ) : (
       <Col size={3} color={"#98B9F2"}>
         {box}
