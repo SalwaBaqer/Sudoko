@@ -19,7 +19,6 @@ export const Square = styled.p`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
   color: red;
   background-color: honeydew;
 `;
@@ -69,6 +68,8 @@ export const Row = styled.div`
 //   height: 10px;
 //   width: calc(100% * (1 / 3) - 10px - 1px);
 // `;
+
+//few editing on the following
 export const Col = styled.label`
   flex: 1 3 33%;
   width: 30px;

@@ -100,7 +100,9 @@ let Boards = () => {
     box === " " ? (
       <Colinput
         color={"#98B9F2"}
-        //onchange will help u to check u know what , i put alert just to show u the value
+        //onChange will help u to check u know what , i put alert just to show u the value
+        //onChange b3den you have to call a function for checking please dont
+        //write the code 9 times 🤧
         onChange={(event) => alert(event.target.value)}
       />
     ) : (
