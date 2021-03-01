@@ -1,4 +1,12 @@
-import { Square, Row, Col, Grid, RowRight, RowLeft } from "../styles.js";
+import {
+  Square,
+  Row,
+  Col,
+  Grid,
+  RowRight,
+  RowLeft,
+  Colinput,
+} from "../styles.js";
 
 let medium = [
   "000023087600000500010700000009000004050872030800000700000005090002000006530960000",
@@ -61,6 +69,8 @@ let Boards = () => {
   //     line = [];
   //   }
   //   line.push(board.charAt(counter));
+
+  //*******better to have you data and data handling in another js file and by data i mean the ⬇️ and ⬆️ *********
   let squareOne = SquareMaker(0, y);
   let squareTwo = SquareMaker(3, y);
   let squareThree = SquareMaker(6, y);
@@ -82,56 +92,99 @@ let Boards = () => {
     squareEight,
     squareNine,
   ];
-  const printSone = squareOne.map((box) => (
-    <Col size={3} color={"#98B9F2"}>
-      {box}
-    </Col>
-  ));
-  const printStwo = squareTwo.map((box) => (
-    <Col size={3} color={"#FFEE93"}>
-      {box}
-    </Col>
-  ));
-  const printSthree = squareThree.map((box) => (
-    <Col size={3} color={"#DDA6B0"}>
-      {box}
-    </Col>
-  ));
-  const printSfour = squareFour.map((box) => (
-    <Col size={3} color={"#B6CEF6"}>
-      {box}
-    </Col>
-  ));
-  const printSfive = squareFive.map((box) => (
-    <Col size={3} color={"#FFF3AD"}>
-      {box}
-    </Col>
-  ));
-  const printSsix = squareSix.map((box) => (
-    <Col size={3} color={"#E3B5BD"}>
-      {box}
-    </Col>
-  ));
-  const printSseven = squareSeven.map((box) => (
-    <Col size={3} color={"#C9DAF8"}>
-      {box}
-    </Col>
-  ));
-  const printSeight = squareEight.map((box) => (
-    <Col size={3} color={"#FFF3AD"}>
-      {box}
-    </Col>
-  ));
-  const printSnine = squareNine.map((box) => (
-    <Col size={3} color={"#E3B5BD"}>
-      {box}
-    </Col>
-  ));
+  //===================== check line 73 =====================
 
-  const printS = squares.map((box) => <Square>{box}</Square>);
+  //===== better to one component for the following, no need to do that 9 times ====
+  const printSone = squareOne.map((box) =>
+    //===== i added ternary u know why
+    box === " " ? (
+      <Colinput color={"#98B9F2"} />
+    ) : (
+      <Col size={3} color={"#98B9F2"}>
+        {box}
+      </Col>
+    )
+  );
+  const printStwo = squareTwo.map((box) =>
+    box === " " ? (
+      <Colinput color={"#FFEE93"} />
+    ) : (
+      <Col size={3} color={"#FFEE93"}>
+        {box}
+      </Col>
+    )
+  );
+  const printSthree = squareThree.map((box) =>
+    box === " " ? (
+      <Colinput color={"#DDA6B0"} />
+    ) : (
+      <Col size={3} color={"#DDA6B0"}>
+        {box}
+      </Col>
+    )
+  );
+  const printSfour = squareFour.map((box) =>
+    box === " " ? (
+      <Colinput color={"#B6CEF6"} />
+    ) : (
+      <Col size={3} color={"#B6CEF6"}>
+        {box}
+      </Col>
+    )
+  );
+  const printSfive = squareFive.map((box) =>
+    box === " " ? (
+      <Colinput color={"#FFF3AD"} />
+    ) : (
+      <Col size={3} color={"#FFF3AD"}>
+        {box}
+      </Col>
+    )
+  );
+  const printSsix = squareSix.map((box) =>
+    box === " " ? (
+      <Colinput color={"#E3B5BD"} />
+    ) : (
+      <Col size={3} color={"#E3B5BD"}>
+        {box}
+      </Col>
+    )
+  );
+  const printSseven = squareSeven.map((box) =>
+    box === " " ? (
+      <Colinput color={"#C9DAF8"} />
+    ) : (
+      <Col size={3} color={"#C9DAF8"}>
+        {box}
+      </Col>
+    )
+  );
+  const printSeight = squareEight.map((box) =>
+    box === " " ? (
+      <Colinput color={"#FFF3AD"} />
+    ) : (
+      <Col size={3} color={"#FFF3AD"}>
+        {box}
+      </Col>
+    )
+  );
+  const printSnine = squareNine.map((box) =>
+    box === " " ? (
+      <Colinput color={"#E3B5BD"} />
+    ) : (
+      <Col size={3} color={"#E3B5BD"}>
+        {box}
+      </Col>
+    )
+  );
+
+  //======== important note line 97 ^^^^^^ ================
+
+  // const printS = squares.map((box) => <Square>{box}</Square>);
 
   return (
-    <>
+    //margin by salwa
+    <div style={{ margin: "20px" }}>
       <RowLeft>
         {printSone}
         {printSfour}
@@ -147,7 +200,7 @@ let Boards = () => {
         {printSsix}
         {printSnine}
       </RowLeft>
-    </>
+    </div>
   );
 };
 

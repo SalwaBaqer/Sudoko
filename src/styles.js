@@ -73,10 +73,19 @@ export const Col = styled.label`
   flex: 1 3 33%;
   width: 30px;
   height: 30px;
-  border-radius: 10px;
   margin: 0.2px;
   text-align: center;
   justify-content: center;
   flex-direction: row;
   background-color: ${(props) => props.color};
+`;
+
+//new styled components for input
+export const Colinput = styled.input`
+  flex: 1 3 30%;
+  width: 30px;
+  height: 27px;
+  text-align: center;
+  background-color: ${(props) => props.color};
+  border-width: 0.2px;
 `;
